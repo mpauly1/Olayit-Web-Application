@@ -1,0 +1,45 @@
+<table style="background-color:orange;"> 
+	<tr>
+		<td width="10%" align='left'>
+			<%= link_to (image_tag "tourSquadLogo.png"), home_index_path%>
+		</td> 
+		<td width="60%" align='center'><h1>TourSquad</h1></td>
+		<td width="15%" align='center'>
+			<%= form_tag :controller => 'home', :action => 'squadSearch' do %>
+				<p>Search Squads: <br/> <%= text_field_tag 'searchinput' %> </p>
+			<% end %>
+
+		</td>
+		<td width="10%">
+			<% if session[:user_id].nil? %>
+				<p><%= link_to "New Customer", new_customer_path %> </p>
+				<%= button_to 'Login', login_path, :method => :get %>
+			<% else %>
+				Hello <%= Customer.find(session[:user_id]).lastName %> ! <br>
+				<%= button_to 'Logout', logout_path, :method => :delete %>
+			<% end %>
+		<td>
+	</tr>
+ </table> 
+ <table class="table" style="background-color:orange;">  
+	<tr>
+		<td><%= link_to "About Us", home_about_path %> </td>
+ 		<td><%= link_to "Contact Us", home_contact_path %>  </td>
+ 		<td><%= link_to "Catalog", home_catalog_path %> </td>
+	</tr>
+</table>
+
+<% if session[:admin] == "yes" %>
+	<table class="table" style="background-color:lightgray">
+		<tr>
+			<td><%= link_to "Customers", customers_path %> </td>
+	 		<td><%= link_to "Squads", squads_path %> </td>
+	 		<td><%= link_to "Reviews", reviews_path %> </td>
+	 		<td><%= link_to "Order Items", order_items_path %> </td>
+	 		<td><%= link_to "Orders", orders_path %> </td>
+	 		<td><%= link_to "Categories", categories_path %> </td>
+	 		<td><%= link_to "Reorders", reorders_path %> </td>
+	 		<td><%= link_to "Reports", reports_reportListing_path %> </td>
+		</tr>
+	</table>
+<% end %>

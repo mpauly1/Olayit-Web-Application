@@ -1,0 +1,57 @@
+<%= form_for(@squad) do |f| %>
+  <% if @squad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@squad.errors.count, "error") %> prohibited this squad from being saved:</h2>
+
+      <ul>
+      <% @squad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :squadname %><br>
+    <%= f.text_field :squadname %>
+  </div>
+  <div class="field">
+    <%= f.label :squadimage %><br>
+    <%= f.text_field :squadimage %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.number_field :category_id %>
+  </div>
+  <div class="field">
+    <%= f.label :saleprice %><br>
+    <%= f.text_field :saleprice %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :purchaseprice %><br>
+    <%= f.text_field :purchaseprice %>
+  </div>
+  <div class="field">
+    <%= f.label :qtyonhand %><br>
+    <%= f.number_field :qtyonhand %>
+  </div>
+  <div class="field">
+    <%= f.label :reorderpoint %><br>
+    <%= f.number_field :reorderpoint %>
+  </div>
+  <div class="field">
+    <%= f.label :reorderqty %><br>
+    <%= f.number_field :reorderqty %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

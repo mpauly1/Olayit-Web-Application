@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Squadname:</strong>
+  <%= @squad.squadname %>
+</p>
+
+<p>
+  <strong>Squadimage:</strong>
+  <%= @squad.squadimage %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @squad.description %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @squad.category_id %>
+</p>
+
+<p>
+  <strong>Saleprice:</strong>
+  <%= @squad.saleprice %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @squad.status %>
+</p>
+
+<p>
+  <strong>Purchaseprice:</strong>
+  <%= @squad.purchaseprice %>
+</p>
+
+<p>
+  <strong>Qtyonhand:</strong>
+  <%= @squad.qtyonhand %>
+</p>
+
+<p>
+  <strong>Reorderpoint:</strong>
+  <%= @squad.reorderpoint %>
+</p>
+
+<p>
+  <strong>Reorderqty:</strong>
+  <%= @squad.reorderqty %>
+</p>
+
+<%= link_to 'Edit', edit_squad_path(@squad) %> |
+<%= link_to 'Back', squads_path %>

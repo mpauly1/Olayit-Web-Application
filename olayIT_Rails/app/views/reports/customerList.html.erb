@@ -1,0 +1,31 @@
+<h1>Our Customers!</h1>
+<p><table class="table">  
+<tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+    <th>Address 1</th>
+    <th>Address 2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>ZIP</th>
+    <th>Additional Notes</th>
+</tr>
+
+<% @customerList .each do |c| %>
+
+<tr>
+    <td><%= c.name %></td>
+    <td><%= c.email %></td>
+    <td><%= number_to_phone(c.phoneNumber) %></td>
+    <td><%= c.address1 %></td>
+    <td><%= c.address2 %></td>
+    <td><%= c.city %></td>
+    <td><%= c.state %></td>
+    <td><%= c.zip %></td>
+    <td><%= c.additionalNotes %></td>
+</tr>
+<% end %>
+
+</table></p>
+

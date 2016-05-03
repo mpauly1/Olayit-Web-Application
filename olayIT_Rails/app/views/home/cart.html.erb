@@ -1,0 +1,46 @@
+<h1>Shopping Cart</h1>
+<% i=0 %>
+<% totqty=0 %>
+<% totprice=0 %>
+<% cartlen = session[:cart_prod].length %>
+
+<% if cartlen >0 %>
+	<table border=1>
+		<tr>
+			<th> Squad Name </th>
+			<th> Sale Price </th>
+			<th> Qty Selected </th>
+		</tr>
+		
+	<% while i < cartlen %>
+		<tr>
+			<td> <%= Squad.find(session[:cart_prod][i].to_i).squadname %> </td>
+			<td align='right'> <%= number_to_currency(Squad.find(session[:cart_prod][i].to_i).saleprice) %> </td>
+			<td align='center'> <%= session[:cart_qty][i] %> </td>
+			<td> 
+				<%= form_tag :controller => 'home', :action => 'updatecart' do %>
+					<%= hidden_field_tag 'cartid', "#{i}" %>
+					<%= submit_tag 'Remove' %>
+			    <% end %>
+			</td>
+		</tr>
+		<% totqty = totqty + session[:cart_qty][i].to_i %>
+		<% totprice = totprice + (Squad.find(session[:cart_prod][i].to_i).saleprice * session[:cart_qty][i].to_i) %>
+		<% i = i + 1 %>
+	<% end %>
+	
+		<tr bgcolor='yellow'>
+			<td> <b> Total </b> </td>
+			<td align='right'> <b> <%= number_to_currency(totprice) %> </b> </td>
+			<td align='center'> <b> <%= totqty %> </b> </td>
+		</tr>
+	</table>
+	
+	<%= form_tag :controller => 'home', :action => 'checkout' do %>
+		<%= submit_tag 'Checkout' %>
+	<% end %>
+				
+<% else %>
+	<p> There are no items in the cart. </p>
+
+<% end %>

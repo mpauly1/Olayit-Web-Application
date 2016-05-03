@@ -1,0 +1,19 @@
+<h1>Welcome To TourSquad!</h1>
+<p>Check out our Privacy Policy <u><%= link_to "here", home_privacy_path %></u></p>
+<p>Need help? Check out our <u><%= link_to "FAQ's", home_help_path %></u></p>
+<h3><i>Promotions</i></h3>
+
+<p><table class="table">  
+
+<% @promotionList .each do |promotion| %>
+
+<tr>
+    <td><%= image_tag(promotion.imagepath, size: "200x200") %></td>
+    <td style="vertical-align:middle">
+    	<p><b><%= promotion.title %></b></p>
+    	<p><%= promotion.description %></p>
+    </td>
+</tr>
+<% end %>
+
+</table></p>

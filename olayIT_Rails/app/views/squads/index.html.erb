@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Squads</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Squadname</th>
+      <th>Squadimage</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Saleprice</th>
+      <th>Status</th>
+      <th>Purchaseprice</th>
+      <th>Qtyonhand</th>
+      <th>Reorderpoint</th>
+      <th>Reorderqty</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @squads.each do |squad| %>
+      <tr>
+        <td><%= squad.squadname %></td>
+        <td><%= squad.squadimage %></td>
+        <td><%= squad.description %></td>
+        <td><%= squad.category_id %></td>
+        <td><%= squad.saleprice %></td>
+        <td><%= squad.status %></td>
+        <td><%= squad.purchaseprice %></td>
+        <td><%= squad.qtyonhand %></td>
+        <td><%= squad.reorderpoint %></td>
+        <td><%= squad.reorderqty %></td>
+        <td><%= link_to 'Show', squad %></td>
+        <td><%= link_to 'Edit', edit_squad_path(squad) %></td>
+        <td><%= link_to 'Destroy', squad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Squad', new_squad_path %>

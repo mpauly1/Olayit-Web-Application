@@ -1,0 +1,22 @@
+<h1>Our Bookings!</h1>
+<p><table class="table">  
+<tr>
+    <th>Customer Id</th>
+    <th>Booking Date</th>
+    <th>Booking Notes</th>
+    <th>Squad Id</th>
+    <th>Squad Name</th>
+</tr>
+
+<% @saleList .each do |sale| %>
+
+<tr>
+    <td><%= sale.customer_id %></td>
+    <td><%= sale.saledate %></td>
+    <td><%= sale.salenotes %></td>
+    <td><%= sale.squad_id %></td>
+    <td><%= sale.squadname %></td>
+</tr>
+<% end %>
+
+</table></p>

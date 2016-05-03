@@ -1,0 +1,33 @@
+<%= form_for(@reorder) do |f| %>
+  <% if @reorder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reorder.errors.count, "error") %> prohibited this reorder from being saved:</h2>
+
+      <ul>
+      <% @reorder.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :squad_id %><br>
+    <%= f.number_field :squad_id %>
+  </div>
+  <div class="field">
+    <%= f.label :qtyorder %><br>
+    <%= f.number_field :qtyorder %>
+  </div>
+  <div class="field">
+    <%= f.label :reorderdate %><br>
+    <%= f.date_select :reorderdate %>
+  </div>
+  <div class="field">
+    <%= f.label :expecteddelivery %><br>
+    <%= f.date_select :expecteddelivery %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

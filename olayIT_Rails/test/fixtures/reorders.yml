@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  squad_id: 1
+  qtyorder: 1
+  reorderdate: 2016-02-08
+  expecteddelivery: 2016-02-08
+
+two:
+  squad_id: 1
+  qtyorder: 1
+  reorderdate: 2016-02-08
+  expecteddelivery: 2016-02-08

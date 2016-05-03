@@ -1,0 +1,32 @@
+<p> <h1>Squad Search</h1> </p>
+
+<%= form_tag :action => 'squadSearch' do %>
+	<p>What Squad are you looking for?: 
+	<%= text_field_tag 'searchinput', @searchinput %> </p>
+	<hr/>
+	<% if @results>0 %>
+		<% if @squadList.length >0 %>
+			<p> Here are the search results:</p>
+			<p>
+			<table class="table">
+			<tr>
+				<th>Squad Name</th>
+				<th>Image</th>
+				<th>Description</th>
+				<th>Sale Price</th>
+			</tr>
+			<% @squadList.each do |squad| %>
+				<tr>
+				<td><%= link_to squad.squadname, squad_path(squad.id) %></td>
+				<td><%= image_tag squad.squadimage, size: "400x200" %></td>
+				<td><%= squad.description %></td>
+				<td><%= number_to_currency(squad.saleprice) %> </td>
+				</tr>
+			<% end %>
+			</table>
+		<% else%>
+			<p>There were no Tour Squads that matched your search criteria. Try again!</p>
+		<% end %>
+	<% end %>
+	<%= submit_tag 'Search' %>
+<% end %>

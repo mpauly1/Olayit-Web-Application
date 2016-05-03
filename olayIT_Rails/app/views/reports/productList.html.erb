@@ -1,0 +1,26 @@
+<h1>Our Available Squads!</h1>
+<p><table class="table">  
+<tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Category Id</th>
+    <th>Sale Price</th>
+    <th>Status</th>
+    <th>Purchase Price</th>
+    <th>Available Quantity</th>
+</tr>
+
+<% @squadList .each do |sqaud| %>
+
+<tr>
+    <td><%= sqaud.squadname %></td>
+    <td><%= sqaud.description %></td>
+    <td><%= sqaud.category_id %></td>
+    <td><%= number_to_currency(sqaud.saleprice) %></td>
+    <td><%= sqaud.status %></td>
+    <td><%= number_to_currency(sqaud.purchaseprice) %></td>
+    <td><%= sqaud.qtyonhand %></td>
+</tr>
+<% end %>
+
+</table></p>

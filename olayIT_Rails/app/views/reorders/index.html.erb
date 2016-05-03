@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Reorders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Squad</th>
+      <th>Qtyorder</th>
+      <th>Reorderdate</th>
+      <th>Expecteddelivery</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reorders.each do |reorder| %>
+      <tr>
+        <td><%= reorder.squad_id %></td>
+        <td><%= reorder.qtyorder %></td>
+        <td><%= reorder.reorderdate %></td>
+        <td><%= reorder.expecteddelivery %></td>
+        <td><%= link_to 'Show', reorder %></td>
+        <td><%= link_to 'Edit', edit_reorder_path(reorder) %></td>
+        <td><%= link_to 'Destroy', reorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reorder', new_reorder_path %>

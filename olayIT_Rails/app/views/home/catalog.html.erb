@@ -1,0 +1,28 @@
+<h1>Our Catalog </h1>
+
+<table class="table" border=1>
+	<tr>
+		<th>Squad Name</th>
+		<th>Image</th>
+		<th>Description</th>
+		<th>Sale Price</th>
+		<th>Purchase? Select QTY.</th>
+	</tr>
+	
+	<% @squads.each do |squad| %>
+		<tr>
+			<td><%= squad.squadname %></td>
+			<td><%= image_tag squad.squadimage, size: "400x200" %> </td>
+			<td><%= squad.description %> </td>
+			<td><%= number_to_currency(squad.saleprice) %> </td>
+			<td>
+				<%= form_tag :controller => 'home', :action => 'buy' do %>
+					<%= hidden_field_tag 'prodid', "#{squad.id}" %>
+					<%= select_tag "qty", "<option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option>".html_safe %>
+					<%= submit_tag 'Add To Cart' %>
+				<% end %>
+			</td>
+			
+		</tr>
+	<%end%>
+</table>
